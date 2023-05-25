@@ -7,7 +7,21 @@ We present Program-Guided Fact-Checking (ProgramFC), a novel fact-checking model
 
 ![The general framework of ProgramFC](./framework.png)
 
-## Releasing Soon...
+**Note: The results reported in our paper are mostly based on Codex. However, in light of OpenAI's decision to discontinue support for the Codex API from March 23rd, 2023, we have transitioned to using GPT-3.5 (`text-davinci-003`) for the code implementation provided here.**
+
+First, install all the required packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Program Generation
+
+Releasing soon...
+
+## Program Execution
+
+Releaseing soon...
 
 ## Reference
 Please cite the paper in the following format if you use this dataset during your research.
