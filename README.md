@@ -23,6 +23,12 @@ To prepare the claims and corpus for **HOVER**, please run the following command
 bash prepare_hover_data.sh
 ```
 
+To prepare the claims and corpus for **FEVEROUS-S**, please run the following command:
+
+```bash
+bash prepare_feverous_data.sh
+```
+
 The claims and the indexed corpus will be saved in the `datasets/[DATASET_NAME]/claims` and `datasets/[DATASET_NAME]/corpus` folder, respectively.
 
 ## Program Generation

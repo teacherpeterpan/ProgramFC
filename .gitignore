@@ -7,6 +7,8 @@ __pycache__/
 *.so
 
 # Ignored dirs
+datasets/FEVEROUS/corpus
+datasets/FEVEROUS/raw_data
 datasets/HOVER/corpus
 models
 
