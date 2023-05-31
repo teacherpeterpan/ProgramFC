@@ -10,7 +10,9 @@ __pycache__/
 datasets/FEVEROUS/corpus
 datasets/FEVEROUS/raw_data
 datasets/HOVER/corpus
-models
+results
+models/prompts_copy.py
+program_generation.sh
 
 # Distribution / packaging
 .Python

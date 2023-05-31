@@ -33,7 +33,37 @@ The claims and the indexed corpus will be saved in the `datasets/[DATASET_NAME]/
 
 ## Program Generation
 
-Releasing soon...
+To generate reasoning programs for each dataset, please run the following commands:
+
+```bash
+python ./models/program_generator.py \
+    --data_path ./datasets \
+    --dataset_name "Dataset Name [HOVER | FEVEROUS]" \
+    --num_programs_per_example "Number of reasoning programs for each sample." \
+    --model_name text-davinci-003 \
+    --num_eval_samples "Number of testing examples. -1 for the whole test set." \
+    --api_key "Your OpenAI API Key" \
+    --save_path ./results/programs
+```
+
+Example of each sample with generated programs: 
+```json
+{
+    "idx": 0,
+    "id": "042339bf-0374-4ab3-ab49-6df5f12d868e",
+    "claim": "The song recorded by Fergie that was produced by Polow da Don and was followed by Life Goes On was M.I.L.F.$.",
+    "gold": "supports",
+    "predicted_programs": [
+      [
+        [
+          "fact_1 = Verify(\"M.I.L.F.$ was recorded by Fergie that was produced by Polow da Don.\")",
+          "fact_2 = Verify(\"M.I.L.F.$ was was followed by Life Goes On.\")",
+          "label = Predict(fact_1 and fact_2)"
+        ]
+      ]
+    ]
+}
+```
 
 ## Program Execution
 
