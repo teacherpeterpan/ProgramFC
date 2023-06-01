@@ -20,8 +20,8 @@ class Reasoning_Program_Generator:
 
     def update_results(self, sample, generated_text):
         program_list = [operation.strip() for operation in generated_text.split('\n')]
-        programs = [program_list]
-        self.result_dict[sample['id']]['predicted_programs'].append(programs)
+        # programs = [program_list]
+        self.result_dict[sample['id']]['predicted_programs'].append(program_list)
 
     def batch_generate_programs(self, batch_size = 10):
         # create output_dir

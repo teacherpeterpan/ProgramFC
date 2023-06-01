@@ -13,6 +13,7 @@ datasets/HOVER/corpus
 results
 models/prompts_copy.py
 program_generation.sh
+program_execution.sh
 
 # Distribution / packaging
 .Python

@@ -67,7 +67,52 @@ Example of each sample with generated programs:
 
 ## Program Execution
 
-Releaseing soon...
+By default, the generated programs are saved in the `results/programs` folder. The file name is `[DATASET_NAME]_N=[NUM_PROGRAMS_PER_EXAMPLE]_[MODEL_NAME]_programs.json`. To execute the programs, please run the following commands:
+
+```bash
+export CUDA_VISIBLE_DEVICES="Your CUDA Device ID"
+
+DATASET="Dataset Name [HOVER | FEVEROUS]"
+MODEL="Model used for submodules (QA, Fact-Checker), default: flan-t5-xl"
+SETTING="Experimental Settings [gold | open-book | close-book]"
+PROGRAM_FILE_NAME="The program file name"
+CACHE_DIR="Directory for cached models"
+
+python ./models/program_execution.py \
+    --dataset_name ${DATASET} \
+    --setting ${SETTING} \
+    --FV_data_path ./datasets \
+    --program_dir ./results/programs \
+    --program_file_name ${PROGRAM_FILE_NAME} \
+    --corpus_index_path ./datasets/${DATASET}/corpus/index \
+    --num_retrieved 5 \
+    --max_evidence_length 4096 \
+    --num_eval_samples -1 \
+    --model_name google/${MODEL} \
+    --output_dir ./results/fact_checking \
+    --cache_dir ${CACHE_DIR}
+```
+
+The results will be saved in the `results/fact_checking/[model_name]_[setting]/[dataset_name].program.json`. 
+
+## Evaluation
+
+To evaluate the fact-checking performance, please run the following commands:
+
+```bash
+python ./models/evaluate.py \
+    --dataset_name "Dataset Name [HOVER | FEVEROUS]" \
+    --FV_data_path ./datasets \
+    --result_file "The result file path"
+```
+
+The result table for using `text-davinci-003` as the program generator:
+
+| Setting | Sub-module Model | HOVER (2-hop) | HOVER (3-hop) | HOVER (4-hop) | FEVEROUS |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| gold | flan-t5-xl | 75.03 | 67.22 | 65.03 |  |
+| open-book | flan-t5-xl |  |  |  |  |
+| close-book | flan-t5-xl |  |  |  |  |
 
 ## Reference
 Please cite the paper in the following format if you use this dataset during your research.
