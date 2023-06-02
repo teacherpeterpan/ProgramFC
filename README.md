@@ -106,13 +106,15 @@ python ./models/evaluate.py \
     --result_file "The result file path"
 ```
 
-The result table for using `text-davinci-003` as the program generator:
+The result table (macro-F1) for using `text-davinci-003` as the program generator (N=1):
 
 | Setting | Sub-module Model | HOVER (2-hop) | HOVER (3-hop) | HOVER (4-hop) | FEVEROUS |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| gold | flan-t5-xl | 75.03 | 67.22 | 65.03 |  |
-| open-book | flan-t5-xl |  |  |  |  |
-| close-book | flan-t5-xl |  |  |  |  |
+| gold | flan-t5-xl | 75.03 | 67.22 | 65.03 | 92.32 |
+| open-book | flan-t5-xl | 70.55 | 60.38 | 56.81 | 67.16 |
+| close-book | flan-t5-xl | 53.70 | 51.55 | 52.67 | 59.01 |
+
+The results are similar to the results of using Codex (`code-davinci-002`, deprecated) in our paper.
 
 ## Reference
 Please cite the paper in the following format if you use this dataset during your research.
